@@ -1,9 +1,9 @@
-## Marks Prediction Using Linear Regression
+# Linear Regression
 
 Predict students’ marks based on the number of hours they study using linear regression. This project demonstrates both manual calculation and Python implementation.
 
 
-## Overview
+# Overview
 
 1. Linear regression is a simple way to predict a continuous outcome (marks) from an independent variable (study hours).
 This project includes:
@@ -73,14 +73,3 @@ plt.xlabel("Study Hours")
 plt.ylabel("Marks")
 plt.legend()
 plt.show()
-```
-## Key Concepts
-
-Slope (m): Marks increase per extra study hour
-
-Intercept (b): Marks if a student studies 0 hours
-
-Regression Line: Line of best fit minimizing squared errors
-
-Prediction: Using y = m*x + b to estimate marks
-
