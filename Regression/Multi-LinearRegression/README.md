@@ -52,9 +52,6 @@ taste = [40, 55, 65, 75, 85, 60, 70, 80]
 
 df = pd.DataFrame(data)
 df["Taste"] = taste
-```
-![alt text](image.png)
-```py
 
 X = df[["Sugar", "Milk", "TeaLeaves", "Water"]]
 y = df["Taste"]
@@ -65,17 +62,11 @@ model.fit(X, y)
 
 print("Slopes (m1,m2,m3,m4)", model.coef_)
 print("Intercept(C)", model.intercept_)
-```
-![alt text](image-1.png)
-```py
 
 # Prediction
 print("Predicted Taste for Sugar=3, Milk=200, TeaLeaves=3, Water=250:",
       model.predict([[3, 200, 3, 250]]))
-```
-![alt text](image-2.png)
 
-```py
 plt.scatter(df["Sugar"], y, color="red", label="Actual taste")
 plt.plot(df["Sugar"], model.predict(X), color="blue", label="Model predictions")
 plt.xlabel("Sugar (spoons)")
@@ -84,5 +75,3 @@ plt.title("Effect of Sugar on Tea Taste (with other factors)")
 plt.legend()
 plt.show()
 ```
-
-![alt text](image-3.png)
