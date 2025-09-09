@@ -1,75 +1,70 @@
-# Linear Regression
+## Student Marks Prediction using Linear Regression
 
-Predict students’ marks based on the number of hours they study using linear regression. This project demonstrates both manual calculation and Python implementation.
+This project predicts students’ marks based on the number of hours they study.
 
+It demonstrates both:            
+✔ Manual calculation of linear regression    
+✔ Python implementation with visualization
 
-# Overview
+## What is Linear Regression?
 
-1. Linear regression is a simple way to predict a continuous outcome (marks) from an independent variable (study hours).
-This project includes:
+Linear regression is a method to find the relationship between two variables:
 
-2. Calculating slope (m) and intercept (b) manually
+    1.  Independent variable (X): Study Hours
+    2.  Dependent variable (y): Marks
 
-3. Predicting marks for given study hours
+It fits a straight line to the data, called the regression line, which best represents the trend.
 
-4. Visualizing the regression line with actual data points
+    Formula:-   y=m⋅x+b
 
-5. Working with a dataset of 100 students (student_dataset_capped.csv)
+    m → slope (how much marks increase for each extra study hour)   
+    b → intercept (marks when study hours = 0)
 
 ## Dataset
 
-The CSV file contains 100 students:
+We use a dataset of 100 students (student_dataset_capped.csv) that contains:
 
-![alt text](image.png)
+    Study_Hours → Number of hours studied   
+    Marks → Marks scored
 
-## Program
-####  1. Load Dataset
-```py
-import pandas as pd
+## Project Workflow
+### 1. Load Data
 
-df = pd.read_csv("student_dataset_capped.csv")
-X = df[["Study_Hours"]].values  # Independent variable
-y = df["Marks"].values          # Dependent variable
-```
-####  2. Manual Linear Regression
-```py
-import numpy as np
+We first load the dataset into Python for analysis.
 
-# Calculate means
-x_mean = np.mean(X)
-y_mean = np.mean(y)
+### 2. Manual Linear Regression
 
-# Calculate slope (m)
-m = np.sum((X - x_mean)*(y - y_mean)) / np.sum((X - x_mean)**2)
+We calculate the slope (m) and intercept (b) using statistical formulas.
 
-# Calculate intercept (b)
-b = y_mean - m * x_mean
+Final regression equation obtained:
 
-print(f"Regression equation: y = {m:.2f}x + {b:.2f}")
-```
+    Marks=5.12×Study Hours+29.45
 
-#### 3.Predict Marks
-```py
-def predict(x):
-    return m * x + b
 
-# Predict marks for new study hours
-x_new = np.array([[6], [7.5], [9]])
-y_pred = predict(x_new)
-print("Predicted Marks:", y_pred)
-```
 
-####  4. Visualize Regression
-```py
-import matplotlib.pyplot as plt
+### 3. Predict Marks
 
-x_line = np.linspace(min(X), max(X), 100)
-y_line = predict(x_line)
+Using the regression equation, we predict marks for new study hours:
 
-plt.scatter(X, y, color='blue', label='Actual Marks')
-plt.plot(x_line, y_line, color='red', label='Regression Line')
-plt.scatter(x_new, y_pred, color='green', marker='x', s=100, label='Predictions')
-plt.xlabel("Study Hours")
-plt.ylabel("Marks")
-plt.legend()
-plt.show()
+Study Hours	Predicted Marks
+6	~60
+7.5	~68
+9	~76
+
+### 4. Visualization
+
+We visualize the results using a graph:
+
+    Blue dots → Actual student marks from dataset  
+    Red line → Regression line (best fit line)   
+    Green crosses → Predicted marks for new study hours
+
+This clearly shows how well the regression line fits the actual data.
+
+## Results
+
+The project successfully establishes a relationship between study hours and marks.
+
+The regression equation can be used to predict marks for any given study time.
+
+Visualization confirms that students who study more hours generally score higher.
